@@ -1,0 +1,29 @@
+html,
+body {
+  font-family: 'Open Sans' !important;
+}
+
+.aside,
+.brand,
+.aside-menu {
+  background-color: #EB5757;
+}
+
+#kt_aside_menu {
+  .menu-link {
+    background-color: #EB5757;
+
+    .menu-icon,
+    .menu-text {
+      color: #FFF;
+    }
+  }
+}
+
+.aside-minimize {
+  .brand-logo {
+    span {
+      display: none;
+    }
+  }
+}

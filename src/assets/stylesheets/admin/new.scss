@@ -1,0 +1,37 @@
+@import  "../../metronic/css/pages/login/login-3.css";
+
+.login-aside {
+  background-color: #EB4B4B !important;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  padding: 20px 0 80px;
+}
+
+.login-aside h1 {
+  color: #fff;
+  font-size: 80px;
+  font-weight: 800;
+  line-height: 93.18%;
+}
+
+.login-aside h3 {
+  color: #fff;
+  font-size: 30px;
+  font-weight: 800;
+  position: absolute;
+  bottom: 5%;
+}
+
+.login-content {
+  background-color: #FFF !important;
+}
+
+.login-form input[type="email"],
+.login-form input[type="password"] {
+  background-color: #F4F6F9;
+}
+.login.login-3 {
+  height: 100vh;
+}

@@ -5,7 +5,7 @@ function Login() {
     <div className="d-flex flex-column flex-root">
       <div className="login login-3 wizard d-flex flex-column flex-lg-row flex-column-fluid">
         <div className="login-aside d-flex flex-column">
-          <img className="mb-5" style={{height: 125}} alt="" src={{Logo}}/>
+          <img className="mb-5" style={{height: 125}} alt="" src={Logo}/>
           <h1 style={{fontSize: 100}}>
             OPENGOV <br/>CITY
             </h1>

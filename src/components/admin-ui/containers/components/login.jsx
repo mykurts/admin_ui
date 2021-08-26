@@ -1,6 +1,6 @@
 import React, {Component} from "react";
-import '../../../assets/application_setup/css/login_application.scss';
-import Logo from "../../../assets/images/logo.png"
+import '../../../../assets/application_setup/css/login_application.scss';
+import Logo from "../../../../assets/images/logo.png"
 class Login extends Component {
 
   constructor(props) {
@@ -11,6 +11,7 @@ class Login extends Component {
       password:  ""
     };
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
 
   }
 
@@ -19,6 +20,13 @@ class Login extends Component {
         [e.target.id]: e.target.value
     })
   }
+
+  handleSubmit = e =>{
+    e.preventDefault();
+    console.log(this.state.email);
+    console.log(this.state.password);
+  }
+
 
 
   render() {
@@ -36,8 +44,7 @@ class Login extends Component {
           <div className="login-content flex-row-fluid d-flex flex-column p-10">
             <div className="d-flex flex-row-fluid flex-center">
                 <div className="login-form">
-                  <form className="form" id="kt_login_singin_form">
-                    <input type="hidden" name="authenticity_token" value="paSALdz65puyw9X05nu3ldoF55TFc8vpqEnVTuUXGKX+/zqKO4THIxzYgWjchP4T2UBBybpNo0697v0ZwT8ZCQ=="/>
+                  <form className="form" id="kt_login_singin_form" onSubmit={this.handleSubmit}>
                     <div className="pb-5 pb-lg-15">
                       <h3 className="font-weight-boldest text-dark font-size-h2 font-size-h1-lg text-center">Welcome to OpenGov Admin</h3>
                     </div>

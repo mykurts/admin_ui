@@ -1,6 +1,11 @@
 import React, {Component} from "react";
 import '../../../../assets/application_setup/css/login_application.scss';
 import Logo from "../../../../assets/images/logo.png"
+import createActions from '../../redux/actions/accountActions';
+import { connect } from "react-redux";
+import history from "../../utilities/history";
+
+
 class Login extends Component {
 
   constructor(props) {
@@ -23,11 +28,15 @@ class Login extends Component {
 
   handleSubmit = e =>{
     e.preventDefault();
-    console.log(this.state.email);
-    console.log(this.state.password);
+    this.props.signIn({email: this.state.email, password: this.state.password});
   }
 
+  componentDidMount() {
+    if(this.props.is_login){
+      history.push("/dashboard");
+    }
 
+  }
 
   render() {
     return (
@@ -44,10 +53,12 @@ class Login extends Component {
           <div className="login-content flex-row-fluid d-flex flex-column p-10">
             <div className="d-flex flex-row-fluid flex-center">
                 <div className="login-form">
+                  
                   <form className="form" id="kt_login_singin_form" onSubmit={this.handleSubmit}>
                     <div className="pb-5 pb-lg-15">
-                      <h3 className="font-weight-boldest text-dark font-size-h2 font-size-h1-lg text-center">Welcome to OpenGov Admin</h3>
+                      <h3 className="font-weight-boldest text-dark font-size-h2 font-size-h1-lg text-center">Welcome to OpenGov Admin {this.props.is_login}</h3>
                     </div>
+                    
                     <div className="form-group">
                       <label className="font-size-h6 font-weight-bolder text-dark">Email</label>
                       <input autoFocus="autofocus" autoComplete="off" className="form-control h-auto py-7 px-6 rounded-lg border-0 font-weight-bolder" type="email" name="account[email]" id="email" onChange={this.handleChange} value={this.state.email}/>
@@ -69,6 +80,21 @@ class Login extends Component {
       </div>
     );
   }
+  
 }
 
-export default Login;
+
+const mapStateToProps= state =>{
+  return{
+      is_login: state.account.is_login,
+      update_msg: state.account.request_msg
+  }
+}
+
+const mapDispatchToProps= dispatch =>{
+  return{
+    signIn: data => dispatch(createActions.usersignin.index.signin(data))
+  }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(Login);

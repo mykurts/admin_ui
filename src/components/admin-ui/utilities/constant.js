@@ -1,5 +1,7 @@
+const port = ":4000";
+const host = "http://localhost"
 
-const base_api_url = "/api/v1";
+const base_api_url = `${host}${port}/api/v1`;
 
 export const ERROR_TYPE = {
 	SUCCESS: "success",
@@ -13,5 +15,6 @@ export const RESPONSE_TYPE = {
 }
 
 export const URL_RESQUEST = {
-	USER_SIGNIN: base_api_url + "/admin/sessions"
+	USER_SIGNIN: base_api_url + "/admin/login",
+	SIGNOUT_USER: base_api_url + "/admin/logout"
 }
